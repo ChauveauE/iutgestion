@@ -2,13 +2,15 @@
   <data>
     <!-- Vue search -->
     <!--
-    <record model="ir.ui.view" id="tdsimodel.model_search_view">
-        <field name="name">tdsimodel.model.search</field>
-        <field name="model">tdsimodel.tdsimodel</field>
+    <record model="ir.ui.view" id="[model_name]_search_view">
+        <field name="name">[model.name].search</field>
+        <field name="model">[model.name]</field>
         <field name="arch" type="xml">
-            <search string="Modèle">
+            <search string="[Nom du modèle]">
                 <group>
-                    <field name="name" select="1"/>
+                    <field name="[champ1]" select="1"/>
+                    <field name="[champ2]" select="1"/>
+                    <field name="[...]" select="1"/>
                 </group>
             </search>
         </field>
@@ -17,14 +19,14 @@
     
     <!-- Vue tree -->
     <!--
-    <record model="ir.ui.view" id="tdsimodel.model_tree_view">
-      <field name="name">tdsimodel.model.tree</field>
-      <field name="model">tdsimodel.tdsimodel</field>
+    <record model="ir.ui.view" id="[model_name]_tree_view">
+      <field name="name">[model.name].tree</field>
+      <field name="model">[model.name]</field>
       <field name="arch" type="xml">
-        <tree string="Modèle">
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+        <tree string="[Nom du modèle]">
+            <field name="[champ1]"/>
+	        <field name="[champ2]"/>
+	        <field name="[...]"/>
         </tree>
       </field>
     </record>
@@ -32,22 +34,22 @@
 
     <!-- Vue form -->
     <!--
-    <record model="ir.ui.view" id="tdsimodel.model_form_view">
-        <field name="name">tdsimodel.model.form</field>
-        <field name="model">tdsimodel.tdsimodel</field>
+    <record model="ir.ui.view" id="[model_name]_form_view">
+        <field name="name">[model.name].form</field>
+        <field name="model">[model.name]</field>
         <field name="arch" type="xml">
-            <form string="Modèle">
+            <form string="[Nom du modèle]">
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <span class="oe_inline">Modèle</span>
+                            <span class="oe_inline">[Nom du modèle]</span>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="name"/>
-                        </group>
-                        <group>
+                            <field name="[champ1]"/>
+                            <field name="[champ2]"/>
+                            <field name="[...]"/>
                         </group>
                     </group>
                 </sheet>
@@ -56,54 +58,45 @@
     </record>
     -->  
     
+    <!-- Vue form (exemple héritage) -->
+    <!--
+    <record model="ir.ui.view" id="[inherited_model_name]_form_view_[module_name]">
+        <field name="name">[inherited.model.name].form.[module.name]</field>
+        <field name="model">[inherited.model.name]</field>
+        <field name="inherit_id" ref="[src_view_id]" />
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <field name="[base_field_name]" position="after">
+             	 <field name="[custom_field_name]"/>
+            </field>
+        </field>
+    </record>
+    -->
+    
     <!-- actions opening views on models -->
     <!-- 
-    <record id="tdsimodel.model_action" model="ir.actions.act_window">
-        <field name="name">Modèle</field>
+    <record id="[model_name]_action" model="ir.actions.act_window">
+        <field name="name">[Nom du modèle]</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">tdsimodel.tdsimodel</field>
+        <field name="res_model">[model.name]</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     -->
-    <!--
-    <record model="ir.actions.act_window" id="tdsimodel.action_window">
-      <field name="name">tdsimodel window</field>
-      <field name="res_model">tdsimodel.tdsimodel</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
 
-    <!-- server action to the one above -->
+    <!-- Top menu item (Niveau 1) -->
     <!--
-    <record model="ir.actions.server" id="tdsimodel.action_server">
-      <field name="name">tdsimodel server</field>
-      <field name="model_id" ref="model_tdsimodel_tdsimodel"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
+    <menuitem name="[Nom menu]" id="[module_name].menu_root"/>
     -->
-
-    <!-- Top menu item -->
+    <!-- menu categories (Niveau 2) -->
     <!--
-    <menuitem name="tdsimodel" id="tdsimodel.menu_root"/>
+    <menuitem name="[Nom Menu 1]" id="[module_name].[menu_name_1]" parent="[module_name].menu_root"/>
+    <menuitem name="[Nom Menu 2]" id="[module_name].[menu_name_2]" parent="[module_name].menu_root"/>
     -->
-    <!-- menu categories -->
+    <!-- actions (Niveau 3) -->
     <!--
-    <menuitem name="Menu 1" id="tdsimodel.menu_1" parent="tdsimodel.menu_root"/>
-    <menuitem name="Menu 2" id="tdsimodel.menu_2" parent="tdsimodel.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="tdsimodel.menu_1_list" parent="tdsimodel.menu_1"
-              action="tdsimodel.action_window"/>
-    <menuitem name="Server to list" id="tdsimodel" parent="tdsimodel.menu_2"
-              action="tdsimodel.action_server"/>
+    <menuitem name="[Nom Menu 1-1]" id="[module_name].[menu_name_1]" parent="[module_name].[menu_name_1]"
+              action="[module_name].[action_id]"/>
     -->
   </data>
 </odoo>

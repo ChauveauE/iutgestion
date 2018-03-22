@@ -24,6 +24,7 @@
 
     # always loaded
     'data': [
+        'views/iut_device_views.xml',
         'security/tdsimodel_security.xml',
         'datas/datas.xml',
         'views/views.xml',
