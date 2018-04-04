@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="iut_course_tree_view">
+      <field name="name">iut.course.tree</field>
+      <field name="model">iut.course</field>
+      <field name="arch" type="xml">
+        <tree string="Modèle">
+          <field name="name"/>
+          <!-- <field name="date_start"/>
+            <field name="date_stop"/> -->
+        </tree>
+      </field>
+    </record>
+    <record id="iut_course_action" model="ir.actions.act_window">
+        <field name="name">Lycée</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">iut.course</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.ui.view" id="iut_course_form_view">
+        <field name="name">iut.course.form</field>
+        <field name="model">iut.course</field>
+        <field name="arch" type="xml">
+            <form string="Cours">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <span class="oe_inline">Cours</span>
+                        </h1>
+                    </div>
+                    <group>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <!-- <field name="date_start"/>
+                            <field name="date_stop"/> -->
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>

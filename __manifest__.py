@@ -24,12 +24,17 @@
 
     # always loaded
     'data': [
-        'views/iut_device_views.xml',
         'security/tdsimodel_security.xml',
         'datas/datas.xml',
-        'views/views.xml',
-        'tdsimodel_menu.xml',
+        'views/views.xml',        
+        #'tdsimodel_menu.xml',
         'security/ir.model.access.csv',
+        'views/iut_class_view.xml',
+        'views/iut_course_view.xml',
+        #'views/iut_schedule_view.xml',
+        'views/iut_student_view.xml',
+        'views/iut_professor_view.xml',
+        'iutgestion_menu.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

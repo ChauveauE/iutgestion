@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Top menu item -->
+        <menuitem name="Lycée" id="menu_model_root" groups="group_model_member" sequence="80" />
+        
+        <!-- Menu Modele / Configuration -->
+        <menuitem id="menu_modele_config" parent="menu_model_root"
+            name="Configuration" sequence="16"/>
+            
+            <menuitem id="menu_iut_class" parent="menu_modele_config"
+                action="iut_class_action" sequence="1" name="Classes"/>
+            
+            <menuitem id="menu_iut_professor" parent="menu_modele_config"
+                action="iut_professor_action" sequence="2" name="Professeurs"/>
+            
+            <menuitem id="menu_iut_student" parent="menu_modele_config"
+                action="iut_student_action" sequence="3" name="Elèves"/>
+
+            <menuitem id="menu_iut_course" parent="menu_modele_config"
+                action="iut_course_action" sequence="4" name="Cours"/> 
+    </data>
+</openerp>
