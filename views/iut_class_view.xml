@@ -8,6 +8,8 @@
           <field name="name"/>
           <field name="level"/>
           <field name="teacher_id"/>
+          <field name="student_ids"/>
+          <field name="schedule_ids"/>
           <!-- <field name="student_nb"/> -->
         </tree>
       </field>
@@ -31,10 +33,12 @@
                         </h1>
                     </div>
                     <group>
-                        <group colspan="4">
+                        <group colspan="2">
                             <field name="name"/>
                             <field name="level"/>
                             <field name="teacher_id"/>
+                            <field name="student_ids"/>
+                            <field name="schedule_ids"/>
                             <!-- <field name="student_nb"/> -->
                         </group>
                     </group>

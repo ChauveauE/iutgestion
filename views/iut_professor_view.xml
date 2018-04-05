@@ -6,6 +6,7 @@
       <field name="model">iut.professor</field>
       <field name="arch" type="xml">
         <tree string="Modèle">
+            <field name="name"/>
             <field name="class_id"/>
         </tree>
       </field>
@@ -25,6 +26,12 @@
         <field name="mode">primary</field>
         <field name="model">iut.professor</field>
         <field name="arch" type="xml">
+            <group>
+                <group colspan="2">
+                  <field name="name"/>
+                  <field name="class_id"/>
+                </group>
+            </group>
             <notebook position="inside">
                 <page name="iut" string="Classe IUT Gestion">
                     <group>
