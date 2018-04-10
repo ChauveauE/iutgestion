@@ -1,10 +1,10 @@
 <odoo>
   <data>
+  <!-- vue tree -->
     <record model="ir.ui.view" id="iut_schedule_tree_view">
       <field name="name">iut.schedule.tree</field>
       <field name="model">iut.schedule</field>
       <field name="arch" type="xml">
-        <!-- <tree string="Modèle" _order="date_start"> -->
         <tree string="Modèle">
           <field name="class_id"/>
           <field name="room"/>
@@ -14,6 +14,8 @@
         </tree>
       </field>
     </record>
+
+    <!-- action -->
     <record id="iut_schedule_action" model="ir.actions.act_window">
         <field name="name">Lycée</field>
         <field name="type">ir.actions.act_window</field>
@@ -21,6 +23,8 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <!-- formulaire -->
     <record model="ir.ui.view" id="iut_schedule_form_view">
         <field name="name">iut.schedule.form</field> 
         <field name="model">iut.schedule</field>
@@ -34,7 +38,6 @@
                     </div>
                     <group>
                         <group colspan="4">
-                          <field name="class_id"/>
                           <field name="room"/>
                           <field name="course_id"/>
                           <field name="date_start"/>

@@ -11,3 +11,5 @@ class iut_schedule(models.Model):
 
     class_id = fields.Many2one('iut.class', string='Classe')
     course_id = fields.Many2one('iut.course', string='Cours')
+
+    _order="date_start"

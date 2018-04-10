@@ -7,7 +7,7 @@ class iut_class(models.Model):
 
     name = fields.Char(required=True, string='Nom classe')
     level = fields.Selection([('seconde', 'Seconde'), ('premiere', 'Premiere'), ('terminale', 'Terminale')], string='Niveau')
-    #student_nb = fields.Integer(compute='_compute_student_nb', string='Nombre d élèves')
+    student_nb = fields.Integer(string='Nombre d élèves', compute='_compute_student_nb')
 
     schedule_ids = fields.One2many('iut.schedule', 'class_id', string='Agenda')
 
@@ -15,5 +15,7 @@ class iut_class(models.Model):
     
     teacher_id = fields.Many2one('iut.professor', string='Professeur')
 
-    #@api.depends()
-    #def _compute_student_nb(self):
+    @api.depends('student_ids')
+    def _compute_student_nb(self):
+        for record in self:
+            record.student_nb = len(record.student_ids)

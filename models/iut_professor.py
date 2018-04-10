@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class iut_professor(models.Model):
-    _name = 'iut.professor'
+    #_name = 'iut.professor'
     _inherit = "res.partner"
 
     class_id = fields.Many2one('iut.class', string='Classe')

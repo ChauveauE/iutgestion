@@ -12,8 +12,7 @@ class iut_student(models.Model):
     birthdate = fields.Date(string='Date de naissance')
     age = fields.Integer(compute='_compute_age', string='Age')
  
-    class_id = fields.Many2one('iut.class', string='Classe',
-    required=True)
+    class_id = fields.Many2one('iut.class', string='Classe')
 
     @api.depends()
     def _compute_age(self):
