@@ -21,9 +21,7 @@
         <tree string="Modèle">
           <field name="name"/>
           <field name="level"/>
-          <!-- <field name="teacher_id"/> -->
-          <!-- <field name="student_ids"/>
-          <field name="schedule_ids"/> -->
+          <field name="teacher_id"/>
           <field name="student_nb"/>
         </tree>
       </field>

@@ -13,7 +13,7 @@ class iut_class(models.Model):
 
     student_ids = fields.One2many('iut.student', 'class_id', string='Elèves')
     
-    teacher_id = fields.Many2one('iut.professor', string='Professeur')
+    teacher_id = fields.Many2one('res.partner', string='Professeur')
 
     @api.depends('student_ids')
     def _compute_student_nb(self):

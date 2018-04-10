@@ -7,11 +7,8 @@
       <field name="inherit_id" ref="base.view_partner_tree"/>
       <field name="mode">primary</field>
       <field name="arch" type="xml">
-        <!-- <tree string="Modèle">
-            <field name="name"/>
-            <field name="class_id"/>
-        </tree> -->
         <tree position="inside">
+            <field name="class_id"/>
         </tree>
       </field>
     </record>
@@ -31,17 +28,25 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="mode">primary</field>
-        <!-- <field name="priority" eval="99"/> -->
         <field name="arch" type="xml">
-            <notebook position="inside">
-                <page name="iut" string="Classe IUT Gestion">
-                    <group>
-                        <field name="class_id"/>
-                    </group>
-                </page>
-            </notebook>
+            <group>
+                <field name="class_id"/>
+            </group>
         </field>
     </record> 
+
+    <!-- héritage -->
+    <record model="ir.ui.view" id="iut_professor_form_view">
+        <field name="name">iut.professor.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"></field>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="before">
+             	 <field name="class_id" placeholder="Classe"/>
+            </field>
+        </field>
+    </record>
   </data>
 </odoo>
 

@@ -1,5 +1,6 @@
 <odoo>
   <data>
+  <!-- vue tree -->
     <record model="ir.ui.view" id="iut_course_tree_view">
       <field name="name">iut.course.tree</field>
       <field name="model">iut.course</field>
@@ -11,6 +12,8 @@
         </tree>
       </field>
     </record>
+
+    <!-- action -->
     <record id="iut_course_action" model="ir.actions.act_window">
         <field name="name">Lycée</field>
         <field name="type">ir.actions.act_window</field>
@@ -18,6 +21,8 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <!-- formulaire -->
     <record model="ir.ui.view" id="iut_course_form_view">
         <field name="name">iut.course.form</field>
         <field name="model">iut.course</field>
